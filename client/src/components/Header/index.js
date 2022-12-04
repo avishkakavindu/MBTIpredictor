@@ -2,6 +2,8 @@ import React from 'react';
 import './assets/styles/styles.css';
 
 import { logo } from '../../assets';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
   return (
@@ -29,7 +31,7 @@ const Header = () => {
               <ul className='navbar-nav ms-auto mb-2'>
                 <li className='nav-item'>
                   <a className='nav-link active' href='#banner'>
-                    <i className='fas fa-home fa-1x' aria-hidden='true'></i>
+                    <FontAwesomeIcon icon={faHome} />
                   </a>
                 </li>
                 <li className='nav-item'>
@@ -49,7 +51,7 @@ const Header = () => {
                 </li>
               </ul>
               <div className='text-end ms-5 me-md-5'>
-                <button type='button' className='btn btn-outline-success'>
+                <button type='button' className='btn btn-outline-success me-1'>
                   Login
                 </button>
                 <button type='button' className='btn btn-success'>

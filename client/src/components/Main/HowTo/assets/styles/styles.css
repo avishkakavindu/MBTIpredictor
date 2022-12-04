@@ -1,0 +1,46 @@
+.how-to {
+  padding: 0;
+}
+
+.how-to .icon-box {
+  padding: 20px;
+  color: #5f687b;
+  background: #f9f9fa;
+  border-radius: 4px;
+  border: 1px solid #f9f9fa;
+  transition: 0.3s;
+  height: 100%;
+}
+
+.how-to .icon {
+  margin: 0 0 15px 0;
+}
+
+.how-to .icon i {
+  color: #16df7e;
+  font-size: 36px;
+}
+
+.how-to .title {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.how-to .title a {
+  color: #5f687b;
+  transition: 0.3s;
+}
+
+.how-to .icon-box:hover {
+  border-color: #eaecef;
+}
+
+.how-to .icon-box:hover .title a {
+  color: #16df7e;
+}
+
+.how-to .description {
+  line-height: 24px;
+  font-size: 14px;
+}
