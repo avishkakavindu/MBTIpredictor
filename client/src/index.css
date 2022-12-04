@@ -1,0 +1,40 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #444444;
+}
+
+.success,
+.btn-outline-success {
+  color: #14c871;
+  text-decoration: none;
+  border-color: #14c871;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus,
+.btn-outline-success:active,
+.btn-success,
+.btn-success:focus,
+.btn-success:active {
+  border-color: #14c871;
+  background-color: #14c871;
+}
+
+a {
+  color: #14c871;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #206bfb;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Raleway', sans-serif;
+}
