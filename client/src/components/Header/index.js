@@ -1,6 +1,8 @@
 import React from 'react';
 import './assets/styles/styles.css';
 
+import { logo } from '../../assets';
+
 const Header = () => {
   return (
     <header id='header' className='fixed-top'>
@@ -22,11 +24,7 @@ const Header = () => {
               {/* <!-- Text based or logo -->
             <!-- <h1 className="logo"><a href="index.html">MBTIpredictor</a></h1> --> */}
               <a href='index.html' className='logo d-none d-lg-block'>
-                <img
-                  src='assets/img/apple-touch-icon.png'
-                  alt=''
-                  className='img-fluid'
-                />
+                <img src={logo} alt='' className='img-fluid' />
               </a>
               <ul className='navbar-nav ms-auto mb-2'>
                 <li className='nav-item'>
@@ -50,7 +48,7 @@ const Header = () => {
                   </a>
                 </li>
               </ul>
-              <div className='text-end m-5 me-md-5'>
+              <div className='text-end ms-5 me-md-5'>
                 <button type='button' className='btn btn-outline-success'>
                   Login
                 </button>

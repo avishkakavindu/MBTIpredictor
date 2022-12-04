@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { bannerImage } from '../../assets';
+
 const Banner = () => {
   return (
-    <section id='banner' class='d-flex align-items-center'>
+    <section id='banner' class='d-flex align-items-center mt-4'>
       <div class='container'>
         <div class='row'>
           <div class='col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center'>
@@ -18,11 +20,7 @@ const Banner = () => {
             </div>
           </div>
           <div class='col-lg-6 order-1 order-lg-2'>
-            <img
-              src='assets/mbti_characters/personal-growth.svg'
-              class='img-fluid animated'
-              alt=''
-            />
+            <img src={bannerImage} class='img-fluid animated' alt='' />
           </div>
         </div>
       </div>
