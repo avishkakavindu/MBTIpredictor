@@ -21,11 +21,11 @@ const PageForm = (props) => {
   };
 
   return (
-    <section id='personalityTest' class='personality-test'>
-      <div class='container'>
-        <div class='row'>
-          <div class='col-lg-6'>
-            <img src={loginImage} class='img-fluid' alt='' />
+    <section id='personalityTest' className='personality-test'>
+      <div className='container'>
+        <div className='row'>
+          <div className='col-lg-6'>
+            <img src={loginImage} className='img-fluid' alt='' />
           </div>
           {renderForm()}
         </div>

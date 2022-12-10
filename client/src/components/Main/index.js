@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import HowTo from './HowTo';
 import PageForm from './PageForm';
+import Count from './Counts';
 
 const Main = () => {
   const [formType, setFormType] = useState('LOGIN');
@@ -17,6 +18,7 @@ const Main = () => {
     <main id='main'>
       <HowTo />
       <PageForm formType={formType} />
+      <Count />
     </main>
   );
 };
