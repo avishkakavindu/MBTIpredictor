@@ -1,0 +1,5 @@
+/api/migrations/
+/.env
+/.idea/
+/db.sqlite3
+/venv/
