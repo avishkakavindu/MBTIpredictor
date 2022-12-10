@@ -1,0 +1,48 @@
+.creator .member {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 30px 20px;
+  background: #fff;
+}
+
+.creator .member img {
+  max-width: 100%;
+  margin: 0 0 30px 0;
+}
+
+.creator .member h4 {
+  font-weight: 700;
+  margin-bottom: 2px;
+  font-size: 18px;
+}
+
+.creator .member span {
+  font-style: italic;
+  display: block;
+  font-size: 13px;
+}
+
+.creator .member p {
+  padding-top: 10px;
+  font-size: 14px;
+  font-style: italic;
+  color: #aaaaaa;
+}
+
+.creator .member .social {
+  margin-top: 15px;
+}
+
+.creator .member .social a {
+  color: #919191;
+  transition: 0.3s;
+}
+
+.creator .member .social a:hover {
+  color: #16df7e;
+}
+
+.creator .member .social i {
+  font-size: 18px;
+  margin: 0 2px;
+}

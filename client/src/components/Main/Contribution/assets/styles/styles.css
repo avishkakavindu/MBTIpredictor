@@ -1,0 +1,19 @@
+.contribute {
+  background: #16df7e;
+  background-size: cover;
+  padding: 60px 0;
+}
+
+.contribute h3 {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.contribute p {
+  color: #fff;
+}
+
+.contribute a {
+  color: #fff;
+}
