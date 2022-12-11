@@ -1,0 +1,1 @@
+from .mbti_type_serializer import MBTITypeSerializer
