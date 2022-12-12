@@ -13,7 +13,7 @@ class Prediction(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.user}-{self.type}-{self.date_created}'
+        return f'{self.user}-{self.mbti_type}-{self.date_created}'
 
     @property
     def get_number_of_predictions(self):
@@ -21,9 +21,10 @@ class Prediction(models.Model):
 
     @property
     def get_number_of_success_predictions(self):
+        print('here', Prediction.objects.filter(isCorrect=True).count())
         return Prediction.objects.filter(isCorrect=True).count()
 
     @property
-    def get_number_of_unsuccessful_predictions(self):
+    def get_number_of_failed_predictions(self):
         return Prediction.objects.filter(isCorrect=False).count()
 

@@ -1,1 +1,2 @@
 from .mbti_type_api_view import MBTITypeListAPIView
+from .counts_api_view import CountAPIView
