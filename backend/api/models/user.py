@@ -2,7 +2,6 @@ from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.db import models
 from .mbti_type import MBTIType
-from api.serializers import MBTITypeSerializer
 
 
 class UserManager(BaseUserManager):
@@ -55,7 +54,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'full_name', 'gender', 'user_mbti_type']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'full_name', 'gender']
+
+    class Meta:
+        app_label = 'api'
 
     def __str__(self):
         return self.email
@@ -63,11 +65,5 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def full_name(self):
         return f"{self.first_name}{self.last_name}"
-
-    @property
-    def user_mbti_type(self):
-        obj = MBTIType.objects.get(id=self.mbti_type.id)
-        serializer = MBTITypeSerializer(obj)
-        return serializer.data
 
 

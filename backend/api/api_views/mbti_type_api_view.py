@@ -1,4 +1,5 @@
 from rest_framework.generics import ListAPIView
+
 from api.models import MBTIType
 from api.serializers import MBTITypeSerializer
 

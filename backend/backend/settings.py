@@ -31,9 +31,6 @@ APPEND_SLASH = False
 
 ALLOWED_HOSTS = []
 
-# user model
-AUTH_USER_MODEL = 'api.User'
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,12 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'api',
     'rest_framework',
+    'api',
     'rest_framework_simplejwt.token_blacklist',
     'rest_framework.authtoken',
     'djoser',
 ]
+
+# user model
+AUTH_USER_MODEL = 'api.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
