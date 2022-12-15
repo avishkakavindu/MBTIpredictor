@@ -1,3 +1,3 @@
-from .UserSerializer import UserSerializer
-from .PredictionSerializer import PredictionSerializer
-from .MBTITypeSerializer import MBTITypeSerializer
+from .user_serializer import UserSerializer
+from .prediction_serializer import PredictionSerializer
+from .mbti_type_serializer import MBTITypeSerializer
