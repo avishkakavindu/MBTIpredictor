@@ -5,15 +5,15 @@ import './assets/styles/styles.css';
 
 const Contribution = () => {
   return (
-    <section id='contribute' class='contribute'>
-      <div class='container'>
-        <div class='text-center'>
+    <section id='contribute' className='contribute'>
+      <div className='container'>
+        <div className='text-center'>
           <h3>Like to contribute?</h3>
           <p>
             If you're willing to contribute to the project feel free to
             communicate via...
           </p>
-          <a href='#' class='github'>
+          <a href='#' className='github'>
             <FontAwesomeIcon icon={faGithub} size='5x' />
           </a>
         </div>

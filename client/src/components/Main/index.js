@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import HowTo from './HowTo';
 import PageForm from './PageForm';
@@ -8,15 +8,25 @@ import PredictionResults from './PredictionResults';
 import Contribution from './Contribution';
 import Creator from './Creator';
 
-const Main = () => {
+const Main = (props) => {
+  const { isSignIn, isAuthenticated } = props;
+
   const [formType, setFormType] = useState('LOGIN');
 
   /**
    * Decides what form to render based on authenticated user or not
    */
-  const handleFormType = () => {
-    setFormType('SIGNUP');
-  };
+  useEffect(() => {
+    if (!isAuthenticated) {
+      if (isSignIn) {
+        setFormType('LOGIN');
+      } else {
+        setFormType('SIGNUP');
+      }
+    } else {
+      setFormType('PREDICT');
+    }
+  }, [isSignIn]);
 
   return (
     <main id='main'>

@@ -69,8 +69,8 @@ const PredictionResults = () => {
         >
           <Swiper
             spaceBetween={20}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
             pagination={true}
             autoplay={{
               delay: 2500,
@@ -93,10 +93,10 @@ const PredictionResults = () => {
               },
             }}
           >
-            {predictions.map((prediction) => {
-              const { text, imagePath, name, mbtiType } = prediction;
+            {predictions.map((prediction, idx) => {
+              const { text, imagePath, name, mbtiType, id } = prediction;
               return (
-                <SwiperSlide>
+                <SwiperSlide key={idx}>
                   <Prediction
                     text={text}
                     imagePath={imagePath}

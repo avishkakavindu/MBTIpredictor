@@ -18,7 +18,7 @@ class MBTIType(models.Model):
 
     file_validator = FileExtensionValidator(allowed_extensions=["svg"])
 
-    mbti_type = models.PositiveSmallIntegerField(choices=MBTI_TYPES, default=0)
+    mbti_type = models.PositiveSmallIntegerField(choices=MBTI_TYPES, default=0, unique=True)
     name = models.CharField(max_length=100, null=False, blank=False)
     description = models.TextField(blank=False, null=False)
     image_male = models.FileField(

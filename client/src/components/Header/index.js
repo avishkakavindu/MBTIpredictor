@@ -5,7 +5,17 @@ import { logo } from '../../assets';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
-const Header = () => {
+const Header = (props) => {
+  const { setIsSignIn, isAuthenticated } = props;
+
+  const handleClick = (e) => {
+    if (e.currentTarget.id === 'login') {
+      setIsSignIn(true);
+    } else if (e.currentTarget.id === 'signUp') {
+      setIsSignIn(false);
+    }
+  };
+
   return (
     <header id='header' className='fixed-top'>
       <div className='container align-items-center justify-content-between'>
@@ -51,12 +61,34 @@ const Header = () => {
                 </li>
               </ul>
               <div className='text-end ms-5 me-md-5'>
-                <button type='button' className='btn btn-outline-success me-1'>
-                  Login
-                </button>
-                <button type='button' className='btn btn-success'>
-                  Sign-up
-                </button>
+                {!isAuthenticated ? (
+                  <>
+                    <button
+                      type='button'
+                      className='btn btn-outline-success me-1'
+                      id='login'
+                      onClick={handleClick}
+                    >
+                      Login
+                    </button>
+                    <button
+                      type='button'
+                      className='btn btn-success'
+                      id='signUp'
+                      onClick={handleClick}
+                    >
+                      Sign-up
+                    </button>
+                  </>
+                ) : (
+                  <button
+                    type='button'
+                    className='btn btn-outline-danger me-1'
+                    id='logout'
+                  >
+                    Logout
+                  </button>
+                )}
               </div>
             </div>
           </div>

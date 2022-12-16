@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -7,11 +9,14 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 
 function App() {
+  const [isSignIn, setIsSignIn] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
     <div className='App'>
-      <Header />
+      <Header setIsSignIn={setIsSignIn} isAuthenticated={isAuthenticated} />
       <Banner />
-      <Main />
+      <Main isSignIn={isSignIn} isAuthenticated={isAuthenticated} />
       <Footer />
     </div>
   );
