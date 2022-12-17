@@ -87,3 +87,13 @@ box-icon {
 .prediction-results .swiper-pagination .swiper-pagination-bullet-active {
   background-color: #16df7e;
 }
+
+.date-created {
+  color: #999;
+  font-size: 12px;
+  font-weight: regular;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  padding: 10px;
+}

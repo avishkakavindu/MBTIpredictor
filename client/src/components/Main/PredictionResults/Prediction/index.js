@@ -1,5 +1,6 @@
 const Prediction = (props) => {
-  const { id, text, imagePath, name, mbtiType, mbti_name } = props;
+  const { id, text, imagePath, name, mbtiType, mbti_name, date_created } =
+    props;
 
   return (
     <div className='swiper-slide' id={id}>
@@ -16,6 +17,7 @@ const Prediction = (props) => {
             name='quote-alt-right'
             color='#e4e6ea'
           ></box-icon>
+          <span className='date-created'>{date_created}</span>
         </div>
         <img src={imagePath} className='prediction-results-img' alt='' />
         <h3>{name}</h3>

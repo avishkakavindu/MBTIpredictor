@@ -1,18 +1,31 @@
 import React from 'react';
-import './assets/styles/styles.css';
 
-import { logo } from '../../assets';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
-const Header = (props) => {
-  const { setIsSignIn, isAuthenticated } = props;
+import './assets/styles/styles.css';
+import { logo } from '../../assets';
 
+import { logout } from '../../services/auth.service';
+
+const Header = (props) => {
+  const { setIsSignIn, isAuthenticated, setIsAuthenticated, user } = props;
+
+  // Decides what form to render
   const handleClick = (e) => {
     if (e.currentTarget.id === 'login') {
       setIsSignIn(true);
     } else if (e.currentTarget.id === 'signUp') {
       setIsSignIn(false);
+    }
+  };
+
+  const handleLogout = async (e) => {
+    try {
+      await logout();
+      setIsAuthenticated(false);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -60,7 +73,7 @@ const Header = (props) => {
                   </a>
                 </li>
               </ul>
-              <div className='text-end ms-5 me-md-5'>
+              <div className='text-end mb-2 ms-5 me-md-5'>
                 {!isAuthenticated ? (
                   <>
                     <button
@@ -81,13 +94,17 @@ const Header = (props) => {
                     </button>
                   </>
                 ) : (
-                  <button
-                    type='button'
-                    className='btn btn-outline-danger me-1'
-                    id='logout'
-                  >
-                    Logout
-                  </button>
+                  <>
+                    <strong>Hi, {user.first_name}</strong>
+                    <button
+                      type='button'
+                      className='btn btn-outline-danger me-1 ms-3'
+                      id='logout'
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                  </>
                 )}
               </div>
             </div>

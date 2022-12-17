@@ -16,6 +16,6 @@ class PredictionAPIView(APIView):
             isPrivate=False,
             isCorrect=True
         ).order_by('?')[:number_of_predictions]
-        serializer = PredictionSerializer(predictions, many=True)
+        serializer = PredictionSerializer(predictions, context={'request': request}, many=True)
 
         return Response(serializer.data, status=status.HTTP_200_OK)

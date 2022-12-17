@@ -4,7 +4,7 @@ import PredictForm from './PredictForm';
 import SignupForm from './SignupForm';
 
 const PageForm = (props) => {
-  const { formType } = props;
+  const { formType, setIsAuthenticated } = props;
 
   /**
    * Decides what form to render
@@ -14,7 +14,7 @@ const PageForm = (props) => {
     if (formType === 'SIGNUP') {
       return <SignupForm />;
     } else if (formType === 'LOGIN') {
-      return <LoginForm />;
+      return <LoginForm setIsAuthenticated={setIsAuthenticated} />;
     } else {
       return <PredictForm />;
     }

@@ -25,6 +25,7 @@ export const login = (email, password) => {
       if (response.data.access) {
         localStorage.setItem('user', JSON.stringify(response.data));
       }
+      console.log('From localStorage: ', localStorage.getItem('user'));
       return response.data;
     });
 };

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { format } from 'date-fns';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper';
@@ -112,7 +113,6 @@ const PredictionResults = () => {
           >
             {predictions.map((prediction, idx) => {
               const { id, user, text, date_created, mbti_type } = prediction;
-              console.log(prediction);
               let imagePath = user.mbti_type?.image_male;
               if (user.gender === 1) {
                 // female
@@ -127,6 +127,10 @@ const PredictionResults = () => {
                     name={user.full_name}
                     mbtiType={mbti_type.mbti_display}
                     mbti_name={mbti_type.name}
+                    date_created={format(
+                      new Date(date_created),
+                      'yyyy/MM/dd kk:mm:ss  '
+                    )}
                   />
                 </SwiperSlide>
               );

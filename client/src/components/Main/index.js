@@ -9,7 +9,7 @@ import Contribution from './Contribution';
 import Creator from './Creator';
 
 const Main = (props) => {
-  const { isSignIn, isAuthenticated } = props;
+  const { isSignIn, isAuthenticated, setIsAuthenticated } = props;
 
   const [formType, setFormType] = useState('LOGIN');
 
@@ -26,12 +26,12 @@ const Main = (props) => {
     } else {
       setFormType('PREDICT');
     }
-  }, [isSignIn]);
+  }, [isSignIn, isAuthenticated]);
 
   return (
     <main id='main'>
       <HowTo />
-      <PageForm formType={formType} />
+      <PageForm formType={formType} setIsAuthenticated={setIsAuthenticated} />
       <Count />
       <Personalities isAuthenticated={isAuthenticated} />
       <PredictionResults />

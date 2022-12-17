@@ -54,7 +54,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'full_name', 'gender']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'full_name', 'gender', 'get_mbti_type']
 
     class Meta:
         app_label = 'api'
@@ -64,6 +64,10 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     @property
     def full_name(self):
-        return f"{self.first_name}{self.last_name}"
+        return f"{self.first_name} {self.last_name}"
+
+    @property
+    def get_mbti_type(self):
+        return self.mbti_type.get_mbti_type_display
 
 

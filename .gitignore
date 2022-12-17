@@ -1,2 +1,9 @@
 /template
 backend/.env
+backend/api/models/__pycache__
+.gitignore
+backend/api/api_views/__pycache__
+.gitignore
+backend/api/serializers/__pycache__
+backend/backend/__pycache__
+backend/backend/__pycache__
