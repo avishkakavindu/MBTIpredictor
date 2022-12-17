@@ -49,7 +49,18 @@ box-icon {
   top: 10px;
 }
 
-.prediction-results .prediction-results-item p {
+.text-box {
+  max-height: 200px;
+  overflow: hidden; /*prevent text from being shown outside the border */
+  text-overflow: ellipsis;
+  overflow-y: scroll;
+}
+
+.text-box::-webkit-scrollbar {
+  display: none;
+}
+
+.prediction-results .prediction-results-item div {
   font-style: italic;
   margin: 0 15px 0 15px;
   padding: 20px 20px 60px 20px;

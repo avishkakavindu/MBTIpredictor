@@ -33,7 +33,7 @@ const Main = (props) => {
       <HowTo />
       <PageForm formType={formType} />
       <Count />
-      <Personalities />
+      <Personalities isAuthenticated={isAuthenticated} />
       <PredictionResults />
       <Contribution />
       <Creator />

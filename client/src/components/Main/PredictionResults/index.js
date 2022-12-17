@@ -1,57 +1,74 @@
+import { useState, useEffect } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper';
 import 'boxicons';
 import 'swiper/css/bundle';
 
 import './assets/styles/styles.css';
-import { personalityFace } from '../../../assets';
+import { personalityFace, unknownFace } from '../../../assets';
 import Prediction from './Prediction';
 
+import { getRandomPredictions } from '../../../services/prediction.service';
+
 const PredictionResults = () => {
-  const predictions = [
-    {
-      id: 1,
-      text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
-      imagePath: personalityFace,
-      name: 'Saul Goodman',
-      mbtiType: 'ESTJ the Executive',
-    },
-    {
-      id: 2,
-      text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
-      imagePath: personalityFace,
-      name: 'Saul Goodman',
-      mbtiType: 'ESTJ the Executive',
-    },
-    {
-      id: 3,
-      text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
-      imagePath: personalityFace,
-      name: 'Saul Goodman',
-      mbtiType: 'ESTJ the Executive',
-    },
-    {
-      id: 4,
-      text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
-      imagePath: personalityFace,
-      name: 'Saul Goodman',
-      mbtiType: 'ESTJ the Executive',
-    },
-    {
-      id: 5,
-      text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
-      imagePath: personalityFace,
-      name: 'Saul Goodman',
-      mbtiType: 'ESTJ the Executive',
-    },
-    {
-      id: 6,
-      text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
-      imagePath: personalityFace,
-      name: 'Saul Goodman',
-      mbtiType: 'ESTJ the Executive',
-    },
-  ];
+  // const predictions = [
+  //   {
+  //     id: 1,
+  //     text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
+  //     imagePath: personalityFace,
+  //     name: 'Saul Goodman',
+  //     mbtiType: 'ESTJ the Executive',
+  //   },
+  //   {
+  //     id: 2,
+  //     text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
+  //     imagePath: personalityFace,
+  //     name: 'Saul Goodman',
+  //     mbtiType: 'ESTJ the Executive',
+  //   },
+  //   {
+  //     id: 3,
+  //     text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
+  //     imagePath: personalityFace,
+  //     name: 'Saul Goodman',
+  //     mbtiType: 'ESTJ the Executive',
+  //   },
+  //   {
+  //     id: 4,
+  //     text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
+  //     imagePath: personalityFace,
+  //     name: 'Saul Goodman',
+  //     mbtiType: 'ESTJ the Executive',
+  //   },
+  //   {
+  //     id: 5,
+  //     text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
+  //     imagePath: personalityFace,
+  //     name: 'Saul Goodman',
+  //     mbtiType: 'ESTJ the Executive',
+  //   },
+  //   {
+  //     id: 6,
+  //     text: 'Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.',
+  //     imagePath: personalityFace,
+  //     name: 'Saul Goodman',
+  //     mbtiType: 'ESTJ the Executive',
+  //   },
+  // ];
+
+  const [predictions, setPredictions] = useState([]);
+
+  useEffect(() => {
+    getRandomPredictions().then(
+      (response) => {
+        setPredictions(response.data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
 
   return (
     <section id='predictionResults' className='prediction-results section-bg'>
@@ -94,14 +111,22 @@ const PredictionResults = () => {
             }}
           >
             {predictions.map((prediction, idx) => {
-              const { text, imagePath, name, mbtiType, id } = prediction;
+              const { id, user, text, date_created, mbti_type } = prediction;
+              console.log(prediction);
+              let imagePath = user.mbti_type?.image_male;
+              if (user.gender === 1) {
+                // female
+                imagePath = user.mbti_type?.image_female;
+              }
               return (
                 <SwiperSlide key={idx}>
                   <Prediction
+                    id={id}
                     text={text}
-                    imagePath={imagePath}
-                    name={name}
-                    mbtiType={mbtiType}
+                    imagePath={imagePath ? imagePath : unknownFace}
+                    name={user.full_name}
+                    mbtiType={mbti_type.mbti_display}
+                    mbti_name={mbti_type.name}
                   />
                 </SwiperSlide>
               );

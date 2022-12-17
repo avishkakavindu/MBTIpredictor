@@ -1,5 +1,6 @@
 const Personality = (props) => {
-  const { imagePath, personality, personalityName, description, id } = props;
+  const { imagePath, personality, personalityName, description, id, refLink } =
+    props;
 
   return (
     <div className='col-lg-3 col-md-6 d-flex align-items-stretch mt-4' id={id}>
@@ -12,7 +13,7 @@ const Personality = (props) => {
           />
         </div>
         <h4>
-          <a href='#'>{personalityName}</a>
+          <a href='{refLink}'>{personalityName}</a>
         </h4>
         <h6>{personality}</h6>
         <p>{description}</p>
