@@ -1,0 +1,7 @@
+#signup-alert {
+  position: fixed;
+  top: 0;
+  right: 0;
+  margin: 80px;
+  z-index: 999;
+}
