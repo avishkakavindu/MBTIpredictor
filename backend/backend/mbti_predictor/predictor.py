@@ -6,10 +6,11 @@ import itertools
 import tensorflow as tf
 import transformers
 
-data = pd.read_csv("./dataset/mbti_1.csv")
+data = pd.read_csv("backend/mbti_predictor/dataset/mbti_1.csv")
 types = np.unique(data.type.values)
 maxlen = 512
-trained_model_path = './models/best_model_2.h5'
+trained_model_path = 'backend/mbti_predictor/models/best_model_2.h5'
+
 
 class MBTIPredictor():
     def __init__(self):
@@ -40,7 +41,7 @@ class MBTIPredictor():
             learning_rate=0.00001), metrics=['accuracy'])
         return model
 
-    def predict(self, text, top_n=1):
+    def predict(self, text, top_n=3):
         cleaned_text = self.clean_text(text)
         # tokenize cleaned text
         tokenized_text = [self.tokenizer.encode(cleaned_text, max_length=maxlen, pad_to_max_length=True)]
