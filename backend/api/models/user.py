@@ -54,7 +54,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name', 'full_name', 'gender', 'get_mbti_type']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'full_name',  'gender', 'get_mbti_type']
 
     class Meta:
         app_label = 'api'
