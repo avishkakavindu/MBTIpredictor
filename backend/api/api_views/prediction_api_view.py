@@ -26,17 +26,31 @@ class PredictionAPIView(APIView):
 
     def post(self, request, *args, **kwargs):
         text = request.data.get('text')
+
+        if len(text) < 50:
+            return Response(
+                {'error': 'Please Ensure text has more than 50 characters'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
         try:
             predictions = predictor_obj.predict(text)
-        except:
-            return Response({'error': 'Something went wrong. Cannot predict the MBTI type.'})
+        except Exception:
+            return Response(
+                {'error': 'Something went wrong. Cannot predict the MBTI type.'},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+
         is_low_accuracy = False
 
         if list(predictions.values())[0] < 0.5:
             is_low_accuracy = True
 
         context = {
-            'predictions': predictions,
+            'predictions': {
+                'mbti_types': list(predictions.keys()),
+                'probabilities': list(predictions.values())
+            },
             'is_low_accuracy': is_low_accuracy
         }
 
