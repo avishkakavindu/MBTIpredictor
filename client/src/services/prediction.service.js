@@ -5,7 +5,7 @@ import { authHeader } from './auth-header.service';
 const baseUrl = 'http://localhost:8000/api/v1';
 
 export const getRandomPredictions = (n = 5) => {
-  return axios.get(`${baseUrl}/predictions/${n}`);
+  return axios.get(`${baseUrl}/predictions/${n}`, { headers: authHeader() });
 };
 
 export const getPredictionCounts = () => {
@@ -13,6 +13,11 @@ export const getPredictionCounts = () => {
 };
 
 export const predict = (text) => {
-  console.log(text);
-  return axios.post(`${baseUrl}/predict`, { text });
+  return axios.post(`${baseUrl}/predict`, { text }, { headers: authHeader() });
+};
+
+export const updatePredict = (id, payload) => {
+  return axios.patch(`${baseUrl}/predict/${id}`, payload, {
+    headers: authHeader(),
+  });
 };

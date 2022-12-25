@@ -31,7 +31,11 @@ const Main = (props) => {
   return (
     <main id='main'>
       <HowTo />
-      <PageForm formType={formType} setIsAuthenticated={setIsAuthenticated} />
+      <PageForm
+        formType={formType}
+        setFormType={setFormType}
+        setIsAuthenticated={setIsAuthenticated}
+      />
       <Count />
       <Personalities isAuthenticated={isAuthenticated} />
       <PredictionResults />

@@ -10,14 +10,29 @@ body {
   border-color: #14c871;
 }
 
+.text-success {
+  color: #14c871 !important;
+}
+
+.border-success {
+  border-color: #14c871 !important;
+}
+
 .btn-outline-success:hover,
 .btn-outline-success:focus,
 .btn-outline-success:active,
 .btn-success,
+.bg-success,
 .btn-success:focus,
 .btn-success:active {
   border-color: #14c871;
-  background-color: #14c871;
+  background-color: #14c871 !important;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus,
+.btn-outline-success:active {
+  color: #fff;
 }
 
 a {
@@ -93,4 +108,16 @@ section {
   .section-title span {
     font-size: 38px;
   }
+}
+
+.fs-7 {
+  font-size: 14px;
+}
+
+.fs-8 {
+  font-size: 12px;
+}
+
+.alert {
+  z-index: 999;
 }

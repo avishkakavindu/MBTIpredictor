@@ -11,6 +11,7 @@ class Prediction(models.Model):
     text = models.TextField(null=False, blank=False)
     isPrivate = models.BooleanField(default=False)
     isCorrect = models.BooleanField(default=True)
+    correct_mbti_type = models.ForeignKey(MBTIType, related_name='correct_mbti_type_set', default=None, null=True, blank=True, on_delete=models.DO_NOTHING)
     date_created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     class Meta:

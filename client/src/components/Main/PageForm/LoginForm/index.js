@@ -15,7 +15,6 @@ const LoginForm = (props) => {
     try {
       await login(email, password).then(
         (response) => {
-          console.log(response);
           setIsAuthenticated(true);
           setIsFormValid(true);
         },

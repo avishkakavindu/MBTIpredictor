@@ -5,3 +5,7 @@
   margin: 80px;
   z-index: 999;
 }
+
+.txt-height {
+  height: 10rem !important;
+}

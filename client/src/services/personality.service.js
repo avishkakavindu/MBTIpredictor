@@ -6,3 +6,7 @@ const baseUrl = 'http://localhost:8000/api/v1';
 export const getPersonalities = (gender = 0) => {
   return axios.get(`${baseUrl}/mbti-types/${gender}`);
 };
+
+export const getMBTITypes = () => {
+  return axios.get(`${baseUrl}/mbti-types`);
+};
